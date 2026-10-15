@@ -1,94 +1,137 @@
 # Aural
-### Browser-based multitrack audio studio
+### A modern, browser-based multitrack audio studio
 
-Aural is a sleek multitrack audio editor inspired by Audacity, with a professional, desktop-first interface and a long-term roadmap for non-destructive editing, mixing, recording, spectral analysis and mastering.
+Aural combines Audacity-inspired waveform editing with a sleek studio workspace, track mixer and flexible audio export. It runs in a modern desktop browser and is deployed on GitHub Pages.
 
-**Version:** 1.1.0 (timeline zoom update)  
-**Live site:** https://averydimbulb79.github.io/aural/  
-**Repository:** https://github.com/Averydimbulb79/aural
+| Project | Link |
+| :-- | :-- |
+| Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
+| Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
+| Current version | **v1.2.0** |
+| License | MIT |
+| Platform | Desktop-first web app |
+| Hosting | GitHub Pages |
 
-## Version 1.1 updates
+## What Aural can do
 
-- Added dedicated **−** and **+** zoom buttons alongside the timeline zoom selector.
-- Added **Fit** to scale the complete project's audio, including the latest-ending clip, into the visible waveform workspace.
-- Zoom now supports fine-grained custom percentages from 0.5% to 1600%, rather than stopping at a preset 50%.
-- Timeline scale markings now adapt automatically to zoom level, including long recordings.
-- Zooming in/out keeps the middle of the current viewport approximately in place.
-- Keyboard shortcuts: **-** zoom out, **+** or **=** zoom in.
+| Category | Available features |
+| :-- | :-- |
+| Audio import | WAV, MP3 and other formats supported by your browser; multi-file drag and drop |
+| Timeline | Multitrack waveforms, clip dragging within tracks, playhead, zoom +/− and Fit |
+| Editing | Split, trim left/right, duplicate, delete, undo and redo |
+| Mixing | Track gain, pan, mute/solo and master gain |
+| Transport | Play, pause, stop, rewind, loop |
+| Export | **MP3 and WAV**, user-selectable export settings |
+| Projects | Save and reopen editable JSON projects containing audio data |
+| Workspace | Dark ribbon interface, mixer, inspector and fullscreen |
 
-Use **Fit** after importing an audio file if the recording is too long to see in the timeline. The Fit command measures the timeline workspace width, excluding track controls and a small margin. On very long projects the minimum zoom of 0.5% may still leave horizontal scrolling.
+## Export Audio (new in v1.2.0)
 
-## Version 1.0 features
+Click **Export Audio…** in the top ribbon or **Export mix** in the project browser. A settings dialog lets you choose an output filename and these options:
 
-- Responsive dark studio interface with a contextual editing ribbon, track timeline, mixer and inspector.
-- Import multiple browser-decodable audio files via file picker or drag and drop.
-- Display audio waveforms on separate tracks.
-- Playback and pause, stop, rewind, playhead navigation, loop playback, time readout.
-- Move clips within their tracks, split at playhead, trim left/right, delete and duplicate.
-- Add empty tracks, rename tracks, mute and solo individual tracks.
-- Track gain and stereo pan, master gain.
-- Timeline zoom presets and fullscreen mode.
-- Undo and redo for supported editing actions.
-- Render the multitrack mix to a stereo 44.1 kHz 16-bit WAV file.
-- Save and reload an editable Aural project as JSON, including raw audio samples.
-- Keyboard shortcuts: Space for play/pause, Ctrl/Cmd+Z undo, Ctrl/Cmd+Shift+Z or Ctrl/Cmd+Y redo, Delete to remove selected clip.
+| Setting | MP3 | WAV |
+| :-- | :-- | :-- |
+| Sample rate | 32,000 / 44,100 / 48,000 Hz | 32,000 / 44,100 / 48,000 Hz |
+| Channels | Mono / Stereo | Mono / Stereo |
+| Bitrate | 96 / 128 / 160 / 192 / 256 / 320 kbps | Not applicable |
+| Bit depth | Not applicable | 16-bit PCM / 24-bit PCM |
+| Default | Stereo, 44.1 kHz, 320 kbps | Stereo, 44.1 kHz, 16-bit PCM |
+| Encoding | LameJS 1.2.1, loaded from CDN on first use | Built-in local WAV writer |
 
-### Getting started
+MP3 compression is lossy. A higher bitrate generally improves fidelity at the expense of file size. WAV is uncompressed PCM and is suitable for further editing or mastering.
 
-Open the published GitHub Pages site, or open `index.html` in a current desktop browser. Import audio files, select a clip and use the toolbar to edit, or drag a clip to move it. Click the ruler to position the playhead. Adjust track gain and pan in the inspector, then export the final mix as WAV.
+### Important export considerations
 
-No account, external server or software installation is needed for the v1.0 editor. Imported audio is decoded locally using the browser's Web Audio API. Supported import formats depend on the browser and operating system.
+- MP3 encoding downloads **lamejs 1.2.1** from jsDelivr when used for the first time. This requires network access. Encoding then happens inside your browser; the audio is not uploaded to a remote service.
+- WAV export uses built-in application code and does not need the MP3 encoder.
+- For long sessions, export processing can use considerable RAM and CPU resources. Large-project optimisations are planned.
+- Bitrate is expressed in **kilobits per second (kbps)**; sample rate is expressed in **hertz (Hz)**. They are distinct audio parameters.
+- Audio will be rendered at the selected sample rate. Exported channel count and WAV bit depth follow the selected options.
 
-### Limitations of version 1.0
+## Working with the timeline
 
-This is a foundation release, not yet feature parity with Audacity.
+| Control | Behaviour |
+| :-- | :-- |
+| **+** | Zoom in around the viewport centre |
+| **−** | Zoom out around the viewport centre |
+| **Fit** | Fit the full project audio into the visible waveform area |
+| Zoom dropdown | Select fixed or custom scale |
+| Click ruler | Set playback position |
+| Drag clip | Change clip start time within its track |
+| Split at Playhead | Divide selected clip at the playhead |
+| Trim Left / Right | Remove audio outside the relevant playhead boundary |
 
-- The project JSON embeds audio samples and can become very large. A compact project container and IndexedDB/OPFS persistence are planned.
-- WAV is the only export format currently provided. MP3, FLAC and other outputs are planned.
-- There is no microphone recording, real-time effect rack, spectrogram, advanced automation, crossfade or plugin support yet.
-- Clips can be moved along their existing tracks; moving between tracks and multi-clip group editing are not yet supported.
-- There is no autosave or recovery system yet. Save project files frequently.
-- Large files and long sessions can consume substantial memory. A chunked rendering architecture is planned.
-- The timeline and mixer layout is desktop-first. Browser codec support varies.
+Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum zoom can still require scrolling.
 
-## Development roadmap
+## Keyboard shortcuts
 
-| Version | Focus |
-| --- | --- |
-| 1.0 | Multitrack foundation, imports, editing, mixing basics, WAV export |
-| 2.0 | Selection workflow, snapping, clipboard operations, fades and ripple editing |
-| 3.0 | Real-time EQ, compression, effects, effect chains, advanced mixer |
-| 4.0 | Recording, overdubbing, input monitoring and latency compensation |
-| 5.0 | Spectrogram, FFT analysis, noise profiling and restoration |
-| 6.0 | Mastering, loudness analysis, expanded export formats |
-| 7.0 | Automation lanes, advanced routing, extensible processing |
-| 8.0 | Optimisation, accessibility, reliability and UX polish |
+| Shortcut | Action |
+| :-- | :-- |
+| Space | Play / Pause |
+| Ctrl/Cmd + Z | Undo |
+| Ctrl/Cmd + Shift + Z | Redo |
+| Ctrl/Cmd + Y | Redo |
+| Delete | Delete selected clip |
+| + or = | Zoom in |
+| - | Zoom out |
 
-See [ROADMAP.md](ROADMAP.md) for the detailed plan and [CHANGELOG.md](CHANGELOG.md) for release changes.
+## Getting started
 
-## Release and rollback policy
+1. Open [Aural](https://averydimbulb79.github.io/aural/) in a recent desktop browser.
+2. Select **Import Audio**, or drag audio files directly onto the editor.
+3. Press **Fit** to see all imported audio across the timeline.
+4. Edit clips, use the mixer or inspector to change track levels, and preview playback.
+5. Select **Export Audio…** to choose MP3/WAV, sample rate, channel count and quality.
+6. To preserve editable clips, select **Save Project**, then use **Open Project** to resume later.
 
-For every subsequent release:
+## Development milestones
 
-1. Preserve a rollback point on GitHub before implementing changes, preferably a version tag referencing the current stable commit.
-2. Implement incremental changes without intentionally breaking existing workflows.
-3. Verify core actions and export before considering the update complete.
-4. Update this README and CHANGELOG for every release.
-5. Publish to the main branch for GitHub Pages only after checking the changes.
+| Release | Scope | Status |
+| :-- | :-- | :-- |
+| v1.0 | Basic multitrack editing, playback, WAV export | Released |
+| v1.1 | Zoom In, Zoom Out and Fit to Screen | Released |
+| **v1.2** | **MP3 export, adjustable quality, improved export workflow** | **Released** |
+| v2.0 | Region selection, clipboard editing, fades, crossfades, snap | Planned |
+| v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
+| v4.0 | Recording and overdubbing | Planned |
+| v5.0 | Spectrogram and spectral repair | Planned |
+| v6.0 | Mastering, LUFS metering, batch export | Planned |
+| v7.0 | Automation and advanced routing | Planned |
+| v8.0 | Performance and accessibility refinements | Planned |
 
-The Git commit history already provides recovery points. A separate release tag should be created for each stable version where supported.
+Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANGELOG.md).
 
-## GitHub Pages setup
+## Current limitations
 
-1. In the repository, navigate to **Settings → Pages**.
-2. Set **Build and deployment** to **Deploy from a branch**.
-3. Select **main** and **/(root)**, then save.
-4. Once published, the editor should be accessible at https://averydimbulb79.github.io/aural/.
+| Area | Limitation |
+| :-- | :-- |
+| Large audio | Browser memory usage can grow quickly; no chunked engine yet |
+| Project files | JSON stores uncompressed audio samples and may be large |
+| Recovery | No autosave or crash recovery in current releases |
+| Editing | Clips cannot yet be dragged between tracks; no group editing |
+| Effects | No real-time effect rack or plugin host yet |
+| Recording | Microphone recording is planned |
+| MP3 offline use | Encoder must first be loaded via CDN; reliable offline MP3 support is not yet provided |
+| Quality assurance | Automated full-browser export testing remains outstanding |
 
-## Technology
+## Release discipline and rollback
 
-Aural v1.0 is a static HTML/CSS/JavaScript application using the Web Audio API and Canvas for waveform drawing. This keeps GitHub Pages deployment simple. The audio engine and interface can be modularised as complexity increases.
+1. Create a GitHub backup branch before each incremental update.
+2. Update `README.md` and `CHANGELOG.md` during every release.
+3. Preserve existing application behaviour when extending functionality.
+4. Verify committed changes and check functionality before describing a release as tested.
+5. Restore a previous backup branch when rollback is requested.
 
-## License
+| Release | Backup branch |
+| :-- | :-- |
+| Before v1.2 | `backup/pre-v1.2-export` |
+| Before v1.1 | `backup/pre-v1.1-zoom` |
+| Initial v1.0 | `backup/v1.0.0` |
 
-MIT. See LICENSE.
+## Technical notes
+
+Aural currently uses HTML, CSS and vanilla JavaScript, Web Audio API for mixing and playback, Canvas for waveforms, OfflineAudioContext for export rendering, and LameJS for MP3 encoding. The app is hosted as a static GitHub Pages site. We will modularise the engine as the feature set grows.
+
+### License
+
+MIT. See [LICENSE](LICENSE).
