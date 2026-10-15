@@ -26,6 +26,17 @@ Aural aims for broad Audacity-inspired capability with a refined multitrack inte
 - [ ] Markers, labels and timeline rulers
 - [ ] Robust playback of project edits and preview scrubbing
 
+## v2.2 Professional studio workspace
+- [x] Full menu bar and searchable command palette
+- [x] Context-sensitive tabbed ribbon with compact icons
+- [x] Quick access command row and right-click menus
+- [x] Resizable, collapsible project browser and inspector
+- [x] Resizable dock with Mixer, History, Analysis and Effects tabs
+- [x] Editing, Mixing and Mastering workspace presets
+- [x] Browser-local persisted panel configuration
+- [ ] Interactive spectrum/effects panels (deferred to audio processing releases)
+- [ ] Advanced user-customisable docking, draggable panel rearrangement and history snapshots
+
 ## v3.0 Effects and mixer
 - [ ] Non-destructive effect rack and presets
 - [ ] EQ, compressor, limiter, reverb, delay, normalization
