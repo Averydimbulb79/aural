@@ -1,5 +1,26 @@
 # Changelog
 
+## 1.2.0 - 2026-10-16
+
+### Added
+- Export Audio dialog with editable output filename and format selection.
+- MP3 export using browser-side LameJS, with configurable 96, 128, 160, 192, 256 and 320 kbps bitrate.
+- Sample rate options: 32 kHz, 44.1 kHz and 48 kHz.
+- Mono and stereo export options.
+- WAV export with 16-bit or 24-bit PCM depth.
+
+### Improved
+- Audio export renders at the selected output sample rate and channel count.
+- Export progress/status reporting and error handling.
+- README reorganised into feature, export settings, shortcuts, limitations and roadmap tables.
+
+### Notes
+- MP3 encoder is loaded on demand from jsDelivr; an internet connection is required for initial encoder loading.
+- For large projects, export remains memory-intensive. Automated browser validation is pending.
+- Rollback branch: `backup/pre-v1.2-export`.
+
+
+
 ## 1.1.0 - 2026-10-16
 
 ### Added
