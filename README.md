@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v2.1.1** |
+| Current version | **v2.2.0** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -23,24 +23,53 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Transport | Play, pause, stop, rewind, loop |
 | Export | **MP3 and WAV**, user-selectable export settings |
 | Projects | Save and reopen editable JSON projects containing audio data |
-| Workspace | Compact icon ribbon with hover labels, mixer, inspector and fullscreen |
+| Workspace | Menu bar, contextual ribbon tabs, quick access controls, command palette, context menus, resizable panels and presets |
 
-## Planned: v2.2 professional workspace redesign
+## Professional workspace (v2.2.0)
 
-The v2.2 redesign is at the planning stage and is **not implemented**. The planned workspace has a resizable project browser (left), waveform editor (centre), inspector (right), and a bottom dock for mixer, effects, spectrum analysis, and edit history. The top bar will retain compact icon controls and display the application version.
+Aural v2.2 introduces the framework for a professional multi-window studio interface. Existing audio editing and exporting capabilities are retained.
 
-| Panel | Planned role |
+| Workspace section | Available functionality |
 | :-- | :-- |
-| Asset Browser | Imported media, clip assets, project files and effect presets |
-| Multitrack Timeline | Editable waveform clips, ruler, selections, zoom and transport playhead |
-| Inspector | Clip/track gain, pan, timing, fades, effects and properties |
-| Mixer Dock | Channel strips, meters, pan and gain controls, master output |
-| Analysis Dock | Graphical spectrum and waveform statistics, introduced as implemented |
-| Effects Dock | Visual effect controls and non-destructive chains, introduced in later releases |
-| History Dock | Undo/redo edit list and named snapshots |
-| Workspace Controls | Hide/show panels, splitter resizing, persistent layouts, editing/mixing/mastering presets |
+| Menu bar | File, Edit, Tracks, Clips, Effects, Generate, Analyze, View, Help |
+| Ribbon tabs | Home, Edit, Tracks, Clips and View with contextual icon commands |
+| Quick Access Toolbar | Import, Save Project, Undo, Redo, Export and Fit |
+| Command palette | Ctrl/Cmd+K; search available commands and execute them |
+| Context menu | Right-click a clip or track to access relevant operations |
+| Asset browser | Collapsible and horizontally resizable project browser |
+| Inspector | Collapsible and horizontally resizable properties panel |
+| Bottom dock | Vertically resizable tabs for Mixer, History, Analysis and Effects |
+| Workspace presets | Editing, Mixing and Mastering panel arrangements |
+| Layout persistence | Panel dimensions, visibility, and ribbon tab are saved in local browser storage |
 
-No graphical control should imply a working analyzer or effect until its processing is implemented.
+### Menus and feature availability
+
+The full application menu exposes available commands with shortcuts where applicable. Items marked **(planned)** are disabled until the matching audio-processing implementation exists. Analysis and Effects dock panels currently contain explicit future-feature messages; they are not live analyzers or effect chains.
+
+### Resizing and workspace presets
+
+Drag the thin dividers between the browser, timeline and inspector to resize the side panels. Drag the divider directly above the bottom dock to adjust its height. Use **Browser**, **Inspector** and **Dock** controls to hide or show panels. The workspace selector includes Editing, Mixing and Mastering layouts.
+
+The editing ribbon's command groups update when switching tabs. The Quick Access controls and full menus remain available regardless of the active ribbon tab.
+
+### Keyboard and contextual workflows
+
+| Interaction | Behaviour |
+| :-- | :-- |
+| Ctrl/Cmd + K | Open searchable command palette |
+| Right-click a clip | Display edit operations such as split, fades, duplicate and delete |
+| Right-click a track | Display track-oriented actions |
+| Esc | Dismiss menus and clear active selection where applicable |
+| Click a ribbon tab | Switch visible icon tools without changing their underlying functions |
+| Choose a workspace preset | Change panel dimensions and visible sections |
+
+### Limitations
+
+- This version delivers the UI architecture, not functional spectrum plots, EQ processors or recorders.
+- Panel layout controls are browser-local and are not embedded in exported project files.
+- The current bottom dock has a functional mixer and undo/redo actions; advanced history snapshots are planned.
+- The main timeline remains the existing editing engine, and browser end-to-end testing is still pending.
+- Icon layout is optimised for desktop. Very narrow screens may need horizontal scrolling.
 
 ## Icon-based toolbar (introduced in v2.1.0)
 
@@ -154,7 +183,8 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | v1.1 | Zoom In, Zoom Out and Fit to Screen | Released |
 | v1.2 | MP3 export, adjustable quality, improved export workflow | Released |
 | v2.0 | Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag | Released |
-| **v2.1** | **Professional icon ribbon and hover labels** | **Released** |
+| v2.1 | Professional icon ribbon and hover labels | Released |
+| **v2.2** | **Menu bar, tabbed ribbon, dockable-style panels, contextual commands and presets** | **Released** |
 | v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
 | v4.0 | Recording and overdubbing | Planned |
 | v5.0 | Spectrogram and spectral repair | Planned |
@@ -187,6 +217,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v2.2 | `backup/pre-v2.2-workspace` |
 | Before v2.1 | `backup/pre-v2.1-icon-toolbar` |
 | Before v2.0 | `backup/pre-v2.0-precision` |
 | Before v1.2 | `backup/pre-v1.2-export` |
