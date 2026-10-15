@@ -1,5 +1,28 @@
 # Changelog
 
+## 2.2.0 - 2026-10-16
+
+### Added
+- Full application menu bar with File, Edit, Tracks, Clips, Effects, Generate, Analyze, View and Help categories.
+- Tabbed contextual command ribbon and compact Quick Access Toolbar.
+- Searchable command palette (Ctrl/Cmd+K) and contextual track/clip menus.
+- Resizable project browser, inspector and bottom dock, plus visibility toggles.
+- Editing, Mixing and Mastering workspace presets with browser-local layout persistence.
+- Bottom dock tab switcher with live mixer, undo/redo controls and clearly labelled placeholders for planned audio analysis and effects.
+
+### Preserved
+- Existing clip editing, transport, zoom, WAV/MP3 export and project file actions.
+
+### Limitations
+- Planned analysis and effects are intentionally disabled or labelled rather than simulated.
+- Dock tabs are fixed and panel rearrangement is not yet supported.
+- Browser-based interaction and regression testing remain outstanding.
+
+### Rollback
+- Backup branch: `backup/pre-v2.2-workspace`.
+
+
+
 ## 2.1.1 - 2026-10-16
 
 ### Changed
