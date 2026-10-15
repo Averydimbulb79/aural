@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v1.2.0** |
+| Current version | **v2.0.0** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -17,15 +17,40 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Category | Available features |
 | :-- | :-- |
 | Audio import | WAV, MP3 and other formats supported by your browser; multi-file drag and drop |
-| Timeline | Multitrack waveforms, clip dragging within tracks, playhead, zoom +/− and Fit |
-| Editing | Split, trim left/right, duplicate, delete, undo and redo |
+| Timeline | Multitrack waveforms, range selection, moving clips across tracks, snapping, playhead, zoom +/− and Fit |
+| Editing | Split, trim, cut/copy/paste clip segments, fade in/out, duplicate, delete, undo and redo |
 | Mixing | Track gain, pan, mute/solo and master gain |
 | Transport | Play, pause, stop, rewind, loop |
 | Export | **MP3 and WAV**, user-selectable export settings |
 | Projects | Save and reopen editable JSON projects containing audio data |
 | Workspace | Dark ribbon interface, mixer, inspector and fullscreen |
 
-## Export Audio (new in v1.2.0)
+## Precision editing (new in v2.0.0)
+
+| Tool | How it works |
+| :-- | :-- |
+| Time range selection | Drag across the empty area of a track to highlight an interval on that track |
+| Copy | Select a clip or time range; click **Copy** or press Ctrl/Cmd+C |
+| Cut | Select a clip or time range; click **Cut** or press Ctrl/Cmd+X; non-selected portions remain |
+| Paste | Select a destination track, place playhead, then click **Paste** or Ctrl/Cmd+V |
+| Fade In / Fade Out | Select a clip and click the matching button; click again to remove its 2-second (or shorter) fade |
+| Move between tracks | Drag a selected clip vertically onto another track |
+| Snapping | Toggle **Snap On/Off**, then choose a 0.1, 0.5, 1 or 5 second interval |
+| Clear Selection | Remove the time-range highlight |
+| Undo / Redo | Restore supported structural editing operations |
+
+Range selection operates on one track at a time. The clipboard is internal to Aural, not the system clipboard. Fades are non-destructive gain envelopes and are applied to playback and WAV/MP3 export. Undo/redo snapshots store clip metadata while sharing original decoded audio buffers.
+
+### Current precision-editing limitations
+
+- Drag selection begins on empty lane space. Selecting directly across an existing waveform requires a dedicated selection tool in a future update.
+- No crossfades, ripple editing, multi-track range selection, multi-clip grouping, paste insert mode, or waveform fade handles yet.
+- Pasting places segments at the playhead and overlays existing clips rather than shifting them.
+- Snapping currently uses time-grid intervals, not clip boundaries or zero crossings.
+- Clip fades currently use a fixed default duration, toggled on/off, rather than draggable handles.
+- Browser-based acceptance tests are still pending.
+
+## Export Audio (introduced in v1.2.0)
 
 Click **Export Audio…** in the top ribbon or **Export mix** in the project browser. A settings dialog lets you choose an output filename and these options:
 
@@ -57,7 +82,7 @@ MP3 compression is lossy. A higher bitrate generally improves fidelity at the ex
 | **Fit** | Fit the full project audio into the visible waveform area |
 | Zoom dropdown | Select fixed or custom scale |
 | Click ruler | Set playback position |
-| Drag clip | Change clip start time within its track |
+| Drag clip | Change clip start time and move between tracks |
 | Split at Playhead | Divide selected clip at the playhead |
 | Trim Left / Right | Remove audio outside the relevant playhead boundary |
 
@@ -71,6 +96,10 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | Ctrl/Cmd + Z | Undo |
 | Ctrl/Cmd + Shift + Z | Redo |
 | Ctrl/Cmd + Y | Redo |
+| Ctrl/Cmd + C | Copy selection |
+| Ctrl/Cmd + X | Cut selection |
+| Ctrl/Cmd + V | Paste selection |
+| Escape | Clear time selection |
 | Delete | Delete selected clip |
 | + or = | Zoom in |
 | - | Zoom out |
@@ -90,8 +119,8 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | :-- | :-- | :-- |
 | v1.0 | Basic multitrack editing, playback, WAV export | Released |
 | v1.1 | Zoom In, Zoom Out and Fit to Screen | Released |
-| **v1.2** | **MP3 export, adjustable quality, improved export workflow** | **Released** |
-| v2.0 | Region selection, clipboard editing, fades, crossfades, snap | Planned |
+| v1.2 | MP3 export, adjustable quality, improved export workflow | Released |
+| **v2.0** | **Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag** | **Released** |
 | v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
 | v4.0 | Recording and overdubbing | Planned |
 | v5.0 | Spectrogram and spectral repair | Planned |
@@ -108,7 +137,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 | Large audio | Browser memory usage can grow quickly; no chunked engine yet |
 | Project files | JSON stores uncompressed audio samples and may be large |
 | Recovery | No autosave or crash recovery in current releases |
-| Editing | Clips cannot yet be dragged between tracks; no group editing |
+| Editing | No group editing, crossfades, ripple editing or multi-track range selection yet |
 | Effects | No real-time effect rack or plugin host yet |
 | Recording | Microphone recording is planned |
 | MP3 offline use | Encoder must first be loaded via CDN; reliable offline MP3 support is not yet provided |
@@ -124,6 +153,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v2.0 | `backup/pre-v2.0-precision` |
 | Before v1.2 | `backup/pre-v1.2-export` |
 | Before v1.1 | `backup/pre-v1.1-zoom` |
 | Initial v1.0 | `backup/v1.0.0` |
