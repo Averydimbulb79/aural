@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v2.0.0** |
+| Current version | **v2.1.0** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -23,9 +23,25 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Transport | Play, pause, stop, rewind, loop |
 | Export | **MP3 and WAV**, user-selectable export settings |
 | Projects | Save and reopen editable JSON projects containing audio data |
-| Workspace | Dark ribbon interface, mixer, inspector and fullscreen |
+| Workspace | Compact icon ribbon with hover labels, mixer, inspector and fullscreen |
 
-## Precision editing (new in v2.0.0)
+## Icon-based toolbar (new in v2.1.0)
+
+Aural now uses a compact, professional, icon-first command ribbon, replacing wide text buttons with consistent line icons. Hover over a button to see its full command name; keyboard navigation and screen-reader accessible labels are preserved. Tool groups separate file operations, clip editing, clipboard/fades/snapping, history, export and zoom. The top-bar project buttons are also icon-based.
+
+| Group | Available commands |
+| :-- | :-- |
+| File and tracks | Import Audio, Add Empty Track |
+| Clip editing | Split at Playhead, Delete Clip, Duplicate, Trim Left, Trim Right |
+| Clipboard | Cut, Copy, Paste |
+| Envelope and selection | Fade In, Fade Out, Snap On/Off, Clear Selection |
+| History | Undo, Redo |
+| Output and navigation | Export Audio, Zoom Out, Zoom In, Fit to Timeline |
+| Project bar | Save Project, Open Project, Toggle Fullscreen |
+
+The snap interval and zoom percentage remain visible as compact dropdowns. Tooltips appear on hover, and native browser button titles offer an additional hint. Features and keyboard shortcuts otherwise behave as in v2.0.
+
+## Precision editing (introduced in v2.0.0)
 
 | Tool | How it works |
 | :-- | :-- |
@@ -120,7 +136,8 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | v1.0 | Basic multitrack editing, playback, WAV export | Released |
 | v1.1 | Zoom In, Zoom Out and Fit to Screen | Released |
 | v1.2 | MP3 export, adjustable quality, improved export workflow | Released |
-| **v2.0** | **Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag** | **Released** |
+| v2.0 | Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag | Released |
+| **v2.1** | **Professional icon ribbon and hover labels** | **Released** |
 | v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
 | v4.0 | Recording and overdubbing | Planned |
 | v5.0 | Spectrogram and spectral repair | Planned |
@@ -153,6 +170,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v2.1 | `backup/pre-v2.1-icon-toolbar` |
 | Before v2.0 | `backup/pre-v2.0-precision` |
 | Before v1.2 | `backup/pre-v1.2-export` |
 | Before v1.1 | `backup/pre-v1.1-zoom` |
