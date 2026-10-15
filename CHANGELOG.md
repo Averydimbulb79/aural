@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.1.0 - 2026-10-16
+
+### Changed
+- Replaced word-heavy toolbar buttons with compact, consistent SVG line icons.
+- Grouped editing actions into a denser, scrollable ribbon suitable for a professional audio workspace.
+- Converted top-bar project operations (save, open, fullscreen) to icon-only buttons.
+- Preserved button action IDs and event handlers, zoom and snap selectors.
+
+### Accessibility
+- Added descriptive aria-label and native title tooltips to every converted button.
+- Added keyboard-focus outlines and active-state styling for the Snap toggle.
+- Added pointer hover hints with command names.
+
+### Rollback
+- Backup branch: `backup/pre-v2.1-icon-toolbar`.
+
+
+
 ## 2.0.0 - 2026-10-16
 
 ### Added
