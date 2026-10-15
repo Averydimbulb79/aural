@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v2.1.0** |
+| Current version | **v2.1.1** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -25,7 +25,24 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Projects | Save and reopen editable JSON projects containing audio data |
 | Workspace | Compact icon ribbon with hover labels, mixer, inspector and fullscreen |
 
-## Icon-based toolbar (new in v2.1.0)
+## Planned: v2.2 professional workspace redesign
+
+The v2.2 redesign is at the planning stage and is **not implemented**. The planned workspace has a resizable project browser (left), waveform editor (centre), inspector (right), and a bottom dock for mixer, effects, spectrum analysis, and edit history. The top bar will retain compact icon controls and display the application version.
+
+| Panel | Planned role |
+| :-- | :-- |
+| Asset Browser | Imported media, clip assets, project files and effect presets |
+| Multitrack Timeline | Editable waveform clips, ruler, selections, zoom and transport playhead |
+| Inspector | Clip/track gain, pan, timing, fades, effects and properties |
+| Mixer Dock | Channel strips, meters, pan and gain controls, master output |
+| Analysis Dock | Graphical spectrum and waveform statistics, introduced as implemented |
+| Effects Dock | Visual effect controls and non-destructive chains, introduced in later releases |
+| History Dock | Undo/redo edit list and named snapshots |
+| Workspace Controls | Hide/show panels, splitter resizing, persistent layouts, editing/mixing/mastering presets |
+
+No graphical control should imply a working analyzer or effect until its processing is implemented.
+
+## Icon-based toolbar (introduced in v2.1.0)
 
 Aural now uses a compact, professional, icon-first command ribbon, replacing wide text buttons with consistent line icons. Hover over a button to see its full command name; keyboard navigation and screen-reader accessible labels are preserved. Tool groups separate file operations, clip editing, clipboard/fades/snapping, history, export and zoom. The top-bar project buttons are also icon-based.
 
