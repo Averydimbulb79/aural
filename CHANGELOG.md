@@ -1,5 +1,16 @@
 # Changelog
 
+## 2.1.1 - 2026-10-16
+
+### Changed
+- Added the version number to the browser page title and visible studio header.
+- Documented the proposed v2.2 multi-panel professional workspace, without changing existing editing functionality.
+
+### Rollback
+- Backup branch: `backup/pre-v2.1.1-title`.
+
+
+
 ## 2.1.0 - 2026-10-16
 
 ### Changed
