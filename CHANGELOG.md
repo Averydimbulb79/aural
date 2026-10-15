@@ -1,5 +1,27 @@
 # Changelog
 
+## 2.0.0 - 2026-10-16
+
+### Added
+- Single-track range selection by dragging through empty timeline lane space.
+- Internal clipboard to copy and cut whole clips or intersecting time segments, plus paste onto the selected track at the playhead.
+- Drag clips vertically between existing tracks.
+- Non-destructive fade-in and fade-out toggles, applied in playback and rendered exports.
+- Optional time-grid snapping at 0.1, 0.5, 1 or 5 second increments.
+- Clear Selection button and Escape shortcut.
+- Ctrl/Cmd+C, Ctrl/Cmd+X and Ctrl/Cmd+V shortcuts for editing operations.
+
+### Limitations
+- Range selection begins in empty lane space, not directly over a waveform.
+- Fades are default-duration toggles rather than draggable handles.
+- No crossfades, ripple editing, clip-boundary snapping or multitrack selection yet.
+- Browser end-to-end functional testing remains pending.
+
+### Rollback
+- Backup branch: `backup/pre-v2.0-precision`.
+
+
+
 ## 1.2.0 - 2026-10-16
 
 ### Added
