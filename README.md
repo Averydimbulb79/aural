@@ -3,9 +3,20 @@
 
 Aural is a sleek multitrack audio editor inspired by Audacity, with a professional, desktop-first interface and a long-term roadmap for non-destructive editing, mixing, recording, spectral analysis and mastering.
 
-**Version:** 1.0.0 (foundation release)  
-**Live site (once GitHub Pages is enabled):** https://averydimbulb79.github.io/aural/  
+**Version:** 1.1.0 (timeline zoom update)  
+**Live site:** https://averydimbulb79.github.io/aural/  
 **Repository:** https://github.com/Averydimbulb79/aural
+
+## Version 1.1 updates
+
+- Added dedicated **−** and **+** zoom buttons alongside the timeline zoom selector.
+- Added **Fit** to scale the complete project's audio, including the latest-ending clip, into the visible waveform workspace.
+- Zoom now supports fine-grained custom percentages from 0.5% to 1600%, rather than stopping at a preset 50%.
+- Timeline scale markings now adapt automatically to zoom level, including long recordings.
+- Zooming in/out keeps the middle of the current viewport approximately in place.
+- Keyboard shortcuts: **-** zoom out, **+** or **=** zoom in.
+
+Use **Fit** after importing an audio file if the recording is too long to see in the timeline. The Fit command measures the timeline workspace width, excluding track controls and a small margin. On very long projects the minimum zoom of 0.5% may still leave horizontal scrolling.
 
 ## Version 1.0 features
 
