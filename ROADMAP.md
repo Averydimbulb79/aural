@@ -15,11 +15,14 @@ Aural aims for broad Audacity-inspired capability with a refined multitrack inte
 - [ ] Performance and real-browser regression suite
 
 ## v2.0 Precision editing
-- [ ] Selection regions and in/out ranges
-- [ ] Copy/cut/paste and multi-clip selection
-- [ ] Track-to-track clip dragging
-- [ ] Snap to time, clip boundaries, markers and beats
-- [ ] Clip fade handles, crossfades and ripple edits
+- [x] Single-track time selection on empty lane space
+- [x] Copy/cut/paste a selected clip or audio segment
+- [x] Track-to-track clip dragging
+- [x] Snap to configurable time-grid intervals
+- [x] Non-destructive fixed-duration fade-in and fade-out
+- [ ] Multi-track selection and grouped clip editing
+- [ ] Snap to clip boundaries, markers and beats
+- [ ] Adjustable fade handles, crossfades and ripple edits
 - [ ] Markers, labels and timeline rulers
 - [ ] Robust playback of project edits and preview scrubbing
 
