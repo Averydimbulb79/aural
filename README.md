@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v2.2.0** |
+| Current version | **v2.2.1** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -17,7 +17,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Category | Available features |
 | :-- | :-- |
 | Audio import | WAV, MP3 and other formats supported by your browser; multi-file drag and drop |
-| Timeline | Multitrack waveforms, range selection, moving clips across tracks, snapping, playhead, zoom +/− and Fit |
+| Timeline | Multitrack waveforms, range selection, highlighted cross-track drag destinations, snapping, playhead, zoom +/− and Fit |
 | Editing | Split, trim, cut/copy/paste clip segments, fade in/out, duplicate, delete, undo and redo |
 | Mixing | Track gain, pan, mute/solo and master gain |
 | Transport | Play, pause, stop, rewind, loop |
@@ -25,7 +25,17 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Projects | Save and reopen editable JSON projects containing audio data |
 | Workspace | Menu bar, contextual ribbon tabs, quick access controls, command palette, context menus, resizable panels and presets |
 
-## Professional workspace (v2.2.0)
+## Moving audio clips between tracks (v2.2.1)
+
+1. Import at least one clip and create a second track (or import a second audio file).
+2. Press and hold the clip waveform, then drag vertically to the destination track.
+3. The destination track highlights in teal while the pointer is above it; a floating label identifies the clip being moved.
+4. Release on the highlighted track to move the clip. The clip retains its timeline position unless you also move it horizontally.
+5. If you release outside the track area, the move is cancelled. Use **Undo** (Ctrl/Cmd+Z) to reverse a completed move.
+
+This update makes the existing cross-track dragging behaviour clearer and more reliable, including pointer cancellation, a visual drag proxy, drop-target feedback and preserved editing history. Snapping still applies to horizontal movement when enabled. Drag and drop currently moves a clip; it does not create a linked copy.
+
+## Professional workspace (introduced in v2.2.0)
 
 Aural v2.2 introduces the framework for a professional multi-window studio interface. Existing audio editing and exporting capabilities are retained.
 
@@ -184,7 +194,8 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | v1.2 | MP3 export, adjustable quality, improved export workflow | Released |
 | v2.0 | Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag | Released |
 | v2.1 | Professional icon ribbon and hover labels | Released |
-| **v2.2** | **Menu bar, tabbed ribbon, dockable-style panels, contextual commands and presets** | **Released** |
+| v2.2 | Menu bar, tabbed ribbon, dockable-style panels, contextual commands and presets | Released |
+| **v2.2.1** | **Cross-track drag reliability and visual feedback** | **Released** |
 | v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
 | v4.0 | Recording and overdubbing | Planned |
 | v5.0 | Spectrogram and spectral repair | Planned |
@@ -217,6 +228,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v2.2.1 | `backup/pre-v2.2.1-cross-track-drag` |
 | Before v2.2 | `backup/pre-v2.2-workspace` |
 | Before v2.1 | `backup/pre-v2.1-icon-toolbar` |
 | Before v2.0 | `backup/pre-v2.0-precision` |
