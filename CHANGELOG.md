@@ -1,5 +1,23 @@
 # Changelog
 
+## 2.2.1 - 2026-10-16
+
+### Improved
+- Cross-track clip drag operation with visible teal drop-target highlighting.
+- Floating clip label appears while dragging to identify the active clip.
+- Horizontal timeline placement and snap behaviour are maintained while dragging vertically.
+- Explicit cancellation and destination checking prevent accidental moves when dropped outside the track area.
+- Clip moves preserve undo history and selected clip/track state.
+- Updated application header and browser title to v2.2.1.
+
+### Rollback
+- Backup branch: `backup/pre-v2.2.1-cross-track-drag`.
+
+### Verification
+- JavaScript syntax validated. Interactive browser drag tests are still pending.
+
+
+
 ## 2.2.0 - 2026-10-16
 
 ### Added
