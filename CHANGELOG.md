@@ -1,5 +1,31 @@
 # Changelog
 
+## 3.0.0 - 2026-10-18
+
+Initial graphical studio foundation for the expanded Aural roadmap.
+
+### Added
+- Refined high-contrast graphical studio styling and taller waveform lanes.
+- Mixer channel strips with vertical gain faders, stereo pan sliders, mute and solo buttons.
+- Live master-level visualisation using a Web Audio analyser, plus approximate strip meter indicators.
+- Clip asset browser with focus-on-clip navigation.
+- Best-effort automatic local recovery snapshots using IndexedDB.
+- Manual recovery save/restore controls and status.
+
+### Preserved
+- Existing precision editing, cross-track dragging, browser WAV/MP3 export, playback, and project JSON format.
+
+### Known limitations
+- Current strip meters estimate levels based on master signal; independent track analysers remain pending.
+- Large decoded audio data may exceed IndexedDB storage quotas and cause recovery to fail.
+- Full UI regression testing is pending; no microphone recording, beat maker, EQ or AI processing in this version.
+- This is the first v3 foundation release, not full parity with the referenced Android product.
+
+### Rollback
+- `backup/pre-v3.0-studio`
+
+
+
 ## 2.2.1 - 2026-10-16
 
 ### Improved
