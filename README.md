@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v2.2.1** |
+| Current version | **v3.0.0** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -19,11 +19,37 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Audio import | WAV, MP3 and other formats supported by your browser; multi-file drag and drop |
 | Timeline | Multitrack waveforms, range selection, highlighted cross-track drag destinations, snapping, playhead, zoom +/− and Fit |
 | Editing | Split, trim, cut/copy/paste clip segments, fade in/out, duplicate, delete, undo and redo |
-| Mixing | Track gain, pan, mute/solo and master gain |
+| Mixing | Graphical vertical channel faders, pan sliders, mute/solo, master gain and master-level visualization |
 | Transport | Play, pause, stop, rewind, loop |
 | Export | **MP3 and WAV**, user-selectable export settings |
-| Projects | Save and reopen editable JSON projects containing audio data |
+| Projects | Save/reopen JSON projects and local IndexedDB session recovery |
 | Workspace | Menu bar, contextual ribbon tabs, quick access controls, command palette, context menus, resizable panels and presets |
+
+## v3.0: Studio foundation
+
+The first v3.0 release begins Aural's graphical studio upgrade. It extends the existing editor while preserving the essential editing, playback and export workflow.
+
+| Studio feature | Implementation |
+| :-- | :-- |
+| Interface | Darker high-contrast timeline, taller audio lanes, refined panel chrome |
+| Graphical mixer | Vertical channel faders, stereo pan sliders, mute and solo buttons, track names and level readouts |
+| Output metering | Live master waveform peak display during playback, using a Web Audio analyser |
+| Media library | Imported clip list in the asset browser; click to focus a clip and set playback position |
+| Recovery | Browser-local recovery snapshot saved to IndexedDB after a short period without edits |
+| Manual recovery | Save Recovery Point / Restore Local Recovery buttons in the project browser |
+| Existing functionality | Clipboard, cross-track dragging, zoom, WAV/MP3 export and JSON project import/export retained |
+
+### Recovery and persistence
+
+Aural attempts to write the current session to the browser's IndexedDB approximately 12 seconds after editing stops. Recovery can also be requested manually. When a browser-local recovery point is available, use **Restore local recovery** in the Asset Browser. Restoration replaces the current session after confirmation.
+
+Recovery saves full audio sample data and may consume significant browser storage. Storage quotas, private browsing, very large recordings, and interrupted writes may prevent successful recovery. **Continue saving downloadable JSON project files as your primary backup.** A compact binary project container and incremental asset storage remain future work.
+
+### Metering limitations
+
+The master-level bar currently reflects the amplitude observed by a Web Audio analyser. Channel-strip meter graphics are based on that master-level signal and channel gain settings; they are **not calibrated independent per-track metering**. Independent per-track analysers, true-peak detection, clipping history and loudness metering are planned.
+
+The Mixer, Asset Browser and Recovery controls are functional, but recording, beat-making, AI separation, full graphical effects and video-to-audio conversion are **not implemented** in this release.
 
 ## Moving audio clips between tracks (v2.2.1)
 
@@ -195,6 +221,7 @@ Available timeline zoom: 0.5%–1600%. For extremely long projects, the minimum 
 | v2.0 | Track range selection, cut/copy/paste, fades, grid snapping, cross-track clip drag | Released |
 | v2.1 | Professional icon ribbon and hover labels | Released |
 | v2.2 | Menu bar, tabbed ribbon, dockable-style panels, contextual commands and presets | Released |
+| **v3.0** | **Graphical studio foundation, channel strips, master metering, asset browser and recovery** | **Released (foundation)** |
 | **v2.2.1** | **Cross-track drag reliability and visual feedback** | **Released** |
 | v3.0 | EQ, compressor, limiter, real-time effect chains | Planned |
 | v4.0 | Recording and overdubbing | Planned |
@@ -211,7 +238,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 | :-- | :-- |
 | Large audio | Browser memory usage can grow quickly; no chunked engine yet |
 | Project files | JSON stores uncompressed audio samples and may be large |
-| Recovery | No autosave or crash recovery in current releases |
+| Recovery | IndexedDB local recovery is best-effort and not a substitute for exported project backups |
 | Editing | No group editing, crossfades, ripple editing or multi-track range selection yet |
 | Effects | No real-time effect rack or plugin host yet |
 | Recording | Microphone recording is planned |
@@ -228,6 +255,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v3.0 | `backup/pre-v3.0-studio` |
 | Before v2.2.1 | `backup/pre-v2.2.1-cross-track-drag` |
 | Before v2.2 | `backup/pre-v2.2-workspace` |
 | Before v2.1 | `backup/pre-v2.1-icon-toolbar` |
