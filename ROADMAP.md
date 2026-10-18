@@ -37,11 +37,37 @@ Aural aims for broad Audacity-inspired capability with a refined multitrack inte
 - [ ] Interactive spectrum/effects panels (deferred to audio processing releases)
 - [ ] Advanced user-customisable docking, draggable panel rearrangement and history snapshots
 
-## v3.0 Effects and mixer
+## v3.0 Graphical studio foundation
+- [x] Redesigned, higher-contrast graphical studio work area
+- [x] Vertical mixer faders, pan sliders, mute/solo controls
+- [x] Master signal analyser visual indicator
+- [x] Project asset browser with clip focus actions
+- [x] Local recovery snapshots via IndexedDB with manual save/restore
+- [ ] Independent per-track calibrated meters and master peak hold
+- [ ] Modular TypeScript project architecture and automated browser suite
+- [ ] Compact incremental media storage and guaranteed large-project recovery
+- [ ] Recorder, beat maker, graphical effects, advanced processing (later releases)
+
+## v3.2 Effects and mixer
 - [ ] Non-destructive effect rack and presets
 - [ ] EQ, compressor, limiter, reverb, delay, normalization
 - [ ] Realtime meters, peak/clip indicators
 - [ ] Mix buses and flexible signal routing
+
+## v3.1 Precision editing and recording
+- [ ] Multi-track region selection and fade handles
+- [ ] Clip join/crossfade, loop ranges, ripple editing
+- [ ] Microphone capture, recording and overdubbing
+
+## v3.3 Tempo, pitch and beat tools
+- [ ] Time stretch and pitch shift
+- [ ] BPM analysis, drum pads, step sequencer
+
+## v3.4 Export and conversion
+- [ ] Video-to-audio extraction, ringtone maker, batch export
+
+## v3.5 Intelligent processing
+- [ ] Optional browser-side stem separation and speech/noise isolation
 
 ## v4.0 Recording
 - [ ] Browser microphone capture and device selection
