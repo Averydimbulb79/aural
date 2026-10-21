@@ -1,5 +1,25 @@
 # Changelog
 
+## Windows packaging workflow - 2026-10-21
+
+### Added
+- Tauri 2 desktop Rust shell and Windows NSIS installer configuration.
+- Node-based frontend bundling for the existing static Aural studio.
+- Aural SVG icon source and Windows icon generation command.
+- GitHub Actions Windows build workflow to publish a downloadable setup EXE as an artifact.
+- README build and download instructions.
+
+### Limitations
+- Installer availability depends on a successful GitHub Actions run; Windows installation and audio regression tests remain pending.
+- The packaged studio currently uses WebView2 and the browser-based audio engine.
+- MP3 encoder still requires its CDN download on first use.
+- Unsigned installer may trigger Windows SmartScreen prompts.
+
+### Rollback
+- `backup/pre-windows-desktop-packaging`
+
+
+
 ## 3.0.1 - 2026-10-21
 
 ### UI refinements
