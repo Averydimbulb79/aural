@@ -1,5 +1,20 @@
 # Changelog
 
+## 3.0.1 - 2026-10-21
+
+### UI refinements
+- Unified scrollbar styling throughout Aural's studio panels, timeline, menus and dialogs.
+- Narrow, rounded dark scroll tracks with desaturated teal thumbs and brighter hover/active states.
+- Added Firefox scrollbar properties and WebKit scrollbar styling where supported.
+- Updated visible application and browser titles to v3.0.1.
+
+### Notes
+- Native overlay scrollbar presentation can vary by browser and operating system.
+- Audio editing and processing functions are unchanged.
+- Rollback: `backup/pre-v3.0.1-scrollbars`.
+
+
+
 ## 3.0.0 - 2026-10-18
 
 Initial graphical studio foundation for the expanded Aural roadmap.
