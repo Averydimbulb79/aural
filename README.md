@@ -12,6 +12,43 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
 
+## Windows desktop edition (Tauri)
+
+The repository now includes a Tauri 2 desktop wrapper and a GitHub Actions workflow that builds an **unsigned Windows installer EXE** using a Windows runner. This does not change the GitHub Pages web edition.
+
+| Detail | Value |
+| :-- | :-- |
+| Framework | Tauri 2, Windows WebView2 |
+| Installer format | NSIS `Aural_3.0.1_x64-setup.exe` (exact generated filename may vary) |
+| CI workflow | [Build Aural Windows Installer](.github/workflows/windows-desktop.yml) |
+| Installer artifact | `Aural-v3.0.1-Windows-Setup` under successful GitHub Actions runs |
+| Source directory | `src-tauri/` |
+| Frontend packaging | `npm run build:web` copies `index.html` to `dist/` |
+| Rollback | `backup/pre-windows-desktop-packaging` |
+
+### Downloading the Windows installer
+
+1. Open the repository's [Actions page](https://github.com/Averydimbulb79/aural/actions/workflows/windows-desktop.yml).
+2. Select the newest **successful** Build Aural Windows Installer run. If none has run, select **Run workflow**.
+3. Under **Artifacts**, download `Aural-v3.0.1-Windows-Setup` and extract its ZIP file.
+4. Run the installer EXE from the extracted folder.
+
+The installer is unsigned and Windows SmartScreen may show a publisher warning. Microsoft Edge WebView2 is required and is generally available on supported Windows installations.
+
+### Local desktop build (Windows)
+
+Install Node.js, Rust, and the Windows prerequisites from the Tauri 2 documentation. Run:
+
+```sh
+npm install
+npm run desktop:icons
+npm run desktop:build
+```
+
+Find the built setup EXE under `src-tauri/target/release/bundle/nsis/`.
+
+**Current limitation:** This is a desktop *wrapper of the existing Aural web UI*, not a fully native DSP engine. MP3 export still loads its encoder from a CDN on first use, so that function is not yet fully offline. The Tauri Windows installer has not been verified as built or tested on a Windows machine in this chat. The workflow produces a build artifact only if GitHub Actions completes successfully. Native dialogs, VST support and ASIO are not implemented.
+
 ## What Aural can do
 
 | Category | Available features |
@@ -259,6 +296,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before Windows packaging | `backup/pre-windows-desktop-packaging` |
 | Before v3.0.1 | `backup/pre-v3.0.1-scrollbars` |
 | Before v3.0 | `backup/pre-v3.0-studio` |
 | Before v2.2.1 | `backup/pre-v2.2.1-cross-track-drag` |
