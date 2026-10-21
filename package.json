@@ -1,0 +1,15 @@
+{
+  "name": "aural-desktop",
+  "private": true,
+  "version": "3.0.1",
+  "description": "Aural Windows desktop application",
+  "scripts": {
+    "build:web": "node scripts/build-web.mjs",
+    "desktop:build": "tauri build",
+    "desktop:dev": "tauri dev",
+    "desktop:icons": "tauri icon src-tauri/icons/app-icon.svg"
+  },
+  "devDependencies": {
+    "@tauri-apps/cli": "^2.11.2"
+  }
+}
