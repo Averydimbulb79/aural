@@ -7,7 +7,7 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | :-- | :-- |
 | Live editor | [Launch Aural](https://averydimbulb79.github.io/aural/) |
 | Source repository | [Averydimbulb79/aural](https://github.com/Averydimbulb79/aural) |
-| Current version | **v3.0.0** |
+| Current version | **v3.0.1** |
 | License | MIT |
 | Platform | Desktop-first web app |
 | Hosting | GitHub Pages |
@@ -24,6 +24,10 @@ Aural combines Audacity-inspired waveform editing with a sleek studio workspace,
 | Export | **MP3 and WAV**, user-selectable export settings |
 | Projects | Save/reopen JSON projects and local IndexedDB session recovery |
 | Workspace | Menu bar, contextual ribbon tabs, quick access controls, command palette, context menus, resizable panels and presets |
+
+## v3.0.1: Studio scrollbar polish
+
+The editor's scrollable areas now use narrow, rounded dark scrollbars with muted teal thumbs and brighter teal hover/active states. The styling applies to the timeline, horizontal ribbon, project browser, inspector, dock panels, menus and dialogs. Firefox uses `scrollbar-color` and `scrollbar-width`, while Chromium/Safari-capable browsers use the WebKit scrollbar pseudo-elements where supported. Native overlay scrollbars and operating-system accessibility settings may affect their appearance.
 
 ## v3.0: Studio foundation
 
@@ -255,6 +259,7 @@ Full milestones: [ROADMAP.md](ROADMAP.md). Release history: [CHANGELOG.md](CHANG
 
 | Release | Backup branch |
 | :-- | :-- |
+| Before v3.0.1 | `backup/pre-v3.0.1-scrollbars` |
 | Before v3.0 | `backup/pre-v3.0-studio` |
 | Before v2.2.1 | `backup/pre-v2.2.1-cross-track-drag` |
 | Before v2.2 | `backup/pre-v2.2-workspace` |
