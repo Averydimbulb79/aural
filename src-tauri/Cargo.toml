@@ -1,0 +1,12 @@
+[package]
+name = "aural_desktop"
+version = "3.0.1"
+description = "Aural professional audio studio"
+authors = ["Aural Contributors"]
+edition = "2021"
+
+[build-dependencies]
+tauri-build = { version = "2", features = [] }
+
+[dependencies]
+tauri = { version = "2", features = [] }
